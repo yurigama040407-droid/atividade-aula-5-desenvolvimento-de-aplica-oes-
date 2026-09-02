@@ -1,0 +1,30 @@
+# Entrega do Projeto: Gerenciamento de Alunos (Spring Boot)
+
+## 1. Repositório no GitHub
+🔗 https://github.com/yurigama040407-droid/atividade-aula-5-desenvolvimento-de-aplica-oes-
+
+## 2. Arquivo Compactado (.ZIP)
+- Local: `gerenciamento-alunos-refatorado.zip`
+
+## 3. Resumo das Funcionalidades Implementadas
+- Validação e unicidade de E-mail (@Email, @NotBlank, regra de duplicidade).
+- Nota do ENADE (0.0 a 10.0) com persistência e validação.
+- Tela da Média do ENADE (`/media-enade`) com cálculo automático e botão no cabeçalho.
+- API REST completa (`/api/alunos`) com DTOs e tratamento de exceções.
+- Testes automatizados (JUnit 5, Mockito, MockMvc).
+
+## 4. Como Executar
+```bash
+.\mvnw.cmd spring-boot:run
+```
+- Acesso Web (Porta 8085):
+  - Home: http://localhost:8085/
+  - Cadastrar: http://localhost:8085/inserirAlunos
+  - Listar: http://localhost:8085/alunos-adicionados
+  - Média ENADE: http://localhost:8085/media-enade
+  - API REST: http://localhost:8085/api/alunos
+
+## 5. Testes Automatizados
+```bash
+.\mvnw.cmd test
+```

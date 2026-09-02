@@ -1,0 +1,37 @@
+========================================================================================
+GUIA RÁPIDO DE EXECUÇÃO - GERENCIAMENTO DE ALUNOS (SPRING BOOT)
+========================================================================================
+
+1. PRÉ-REQUISITOS
+- Java JDK 17+
+- MySQL 8.x (rodando na porta 3306 com banco 'academyspring', user 'root', senha 'root')
+
+2. EXECUTANDO A APLICAÇÃO
+Abra o terminal na pasta do projeto e execute:
+- Windows:   .\mvnw.cmd spring-boot:run
+- Linux/Mac: ./mvnw spring-boot:run
+
+3. ENDPOINTS E TELAS (Porta 8085)
+- Página Inicial:    http://localhost:8085/
+- Cadastro de Aluno: http://localhost:8085/inserirAlunos
+- Lista de Alunos:   http://localhost:8085/alunos-adicionados
+- Média do ENADE:    http://localhost:8085/media-enade (ou via botão no cabeçalho)
+- Alunos Ativos:     http://localhost:8085/alunos-ativos
+- Alunos Inativos:   http://localhost:8085/alunos-inativos
+- Pesquisa:          http://localhost:8085/filtro-alunos
+
+4. API REST (/api/alunos)
+- POST   /api/alunos               (Cadastrar aluno - JSON)
+- GET    /api/alunos               (Listar todos os alunos)
+- GET    /api/alunos/{id}          (Buscar por ID)
+- GET    /api/alunos/email/{email} (Buscar por E-mail)
+- GET    /api/alunos/status/ativos (Listar alunos ativos)
+- PUT    /api/alunos/{id}          (Atualizar aluno)
+- DELETE /api/alunos/{id}          (Remover aluno)
+
+5. TESTES AUTOMATIZADOS
+Execute:
+- Windows:   .\mvnw.cmd test
+- Linux/Mac: ./mvnw test
+
+========================================================================================
