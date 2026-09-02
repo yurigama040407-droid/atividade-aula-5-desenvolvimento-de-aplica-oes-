@@ -50,4 +50,19 @@ Você pode criar um banco de dados MySQL com o nome o nome de sua preferência, 
  
 
 ## Execução
-Execute o projeto através do IDE, abra um navegador de sua preferência e digite: http://localhost:8080
+
+Execute o projeto através da IDE ou terminal:
+```bash
+.\mvnw.cmd spring-boot:run
+```
+Abra o navegador em: **http://localhost:8085/**
+
+- **Cadastro de Alunos**: http://localhost:8085/inserirAlunos
+- **Listagem de Alunos**: http://localhost:8085/alunos-adicionados
+- **Média do ENADE**: http://localhost:8085/media-enade
+- **API REST**: http://localhost:8085/api/alunos
+
+## Testes Automatizados
+```bash
+.\mvnw.cmd test
+```
