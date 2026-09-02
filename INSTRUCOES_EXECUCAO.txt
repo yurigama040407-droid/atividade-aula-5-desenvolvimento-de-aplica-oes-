@@ -15,7 +15,7 @@ Abra o terminal na pasta do projeto e execute:
 - Página Inicial:    http://localhost:8085/
 - Cadastro de Aluno: http://localhost:8085/inserirAlunos
 - Lista de Alunos:   http://localhost:8085/alunos-adicionados
-- Média do ENADE:    http://localhost:8085/media-enade (ou via botão no cabeçalho)
+- Média do ENADE:    http://localhost:8085/media-enade (Média e notas dos alunos ATIVOS)
 - Alunos Ativos:     http://localhost:8085/alunos-ativos
 - Alunos Inativos:   http://localhost:8085/alunos-inativos
 - Pesquisa:          http://localhost:8085/filtro-alunos

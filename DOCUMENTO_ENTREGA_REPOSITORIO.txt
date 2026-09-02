@@ -9,7 +9,7 @@
 ## 3. Resumo das Funcionalidades Implementadas
 - Validação e unicidade de E-mail (@Email, @NotBlank, regra de duplicidade).
 - Nota do ENADE (0.0 a 10.0) com persistência e validação.
-- Tela da Média do ENADE (`/media-enade`) com cálculo automático e botão no cabeçalho.
+- Tela da Média do ENADE (`/media-enade`) considerando exclusivamente alunos ATIVOS e botão no cabeçalho.
 - API REST completa (`/api/alunos`) com DTOs e tratamento de exceções.
 - Testes automatizados (JUnit 5, Mockito, MockMvc).
 

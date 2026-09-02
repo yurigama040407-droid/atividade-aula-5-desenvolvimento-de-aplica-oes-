@@ -97,10 +97,10 @@ public class AlunoControllerTest {
     }
 
     @Test
-    @DisplayName("Deve exibir a tela com a média do ENADE")
+    @DisplayName("Deve exibir a tela com a média do ENADE dos alunos ativos")
     void deveExibirTelaMediaEnade() throws Exception {
         when(alunoService.calcularMediaEnade()).thenReturn(8.0);
-        when(alunoService.listarTodos()).thenReturn(Arrays.asList(aluno));
+        when(alunoService.listarAtivos()).thenReturn(Arrays.asList(aluno));
 
         mockMvc.perform(get("/media-enade"))
                 .andExpect(status().isOk())

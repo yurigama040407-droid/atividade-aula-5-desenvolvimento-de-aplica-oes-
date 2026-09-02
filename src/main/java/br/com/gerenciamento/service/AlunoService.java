@@ -133,11 +133,11 @@ public class AlunoService {
 
     @Transactional(readOnly = true)
     public Double calcularMediaEnade() {
-        List<Aluno> alunos = alunoRepository.findAll();
-        if (alunos.isEmpty()) {
+        List<Aluno> alunosAtivos = alunoRepository.findByStatusAtivo();
+        if (alunosAtivos.isEmpty()) {
             return 0.0;
         }
-        double media = alunos.stream()
+        double media = alunosAtivos.stream()
                 .map(Aluno::getNotaEnade)
                 .filter(Objects::nonNull)
                 .mapToDouble(Double::doubleValue)

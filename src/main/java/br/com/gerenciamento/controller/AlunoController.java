@@ -131,7 +131,7 @@ public class AlunoController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("Aluno/media-enade");
         modelAndView.addObject("mediaEnade", alunoService.calcularMediaEnade());
-        modelAndView.addObject("alunosList", alunoService.listarTodos());
+        modelAndView.addObject("alunosList", alunoService.listarAtivos());
         return modelAndView;
     }
 }

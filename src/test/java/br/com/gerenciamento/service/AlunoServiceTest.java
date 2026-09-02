@@ -213,7 +213,7 @@ public class AlunoServiceTest {
     }
 
     @Test
-    @DisplayName("Deve calcular a média das notas do ENADE com sucesso")
+    @DisplayName("Deve calcular a média das notas do ENADE considerando somente alunos ativos com sucesso")
     void deveCalcularMediaEnadeComSucesso() {
         Aluno aluno2 = new Aluno(
                 2L,
@@ -225,20 +225,22 @@ public class AlunoServiceTest {
                 Turno.MATUTINO,
                 6.5
         );
-        when(alunoRepository.findAll()).thenReturn(Arrays.asList(aluno, aluno2));
+        when(alunoRepository.findByStatusAtivo()).thenReturn(Arrays.asList(aluno, aluno2));
 
         Double media = alunoService.calcularMediaEnade();
 
         assertEquals(7.5, media);
+        verify(alunoRepository, times(1)).findByStatusAtivo();
     }
 
     @Test
-    @DisplayName("Deve retornar zero ao calcular média do ENADE quando não houver alunos")
+    @DisplayName("Deve retornar zero ao calcular média do ENADE quando não houver alunos ativos")
     void deveRetornarZeroQuandoNaoHouverAlunosAoCalcularMediaEnade() {
-        when(alunoRepository.findAll()).thenReturn(Collections.emptyList());
+        when(alunoRepository.findByStatusAtivo()).thenReturn(Collections.emptyList());
 
         Double media = alunoService.calcularMediaEnade();
 
         assertEquals(0.0, media);
+        verify(alunoRepository, times(1)).findByStatusAtivo();
     }
 }
