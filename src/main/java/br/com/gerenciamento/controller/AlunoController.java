@@ -125,4 +125,13 @@ public class AlunoController {
         modelAndView.setViewName("Aluno/pesquisa-resultado");
         return modelAndView;
     }
+
+    @GetMapping("/media-enade")
+    public ModelAndView mediaEnade() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("Aluno/media-enade");
+        modelAndView.addObject("mediaEnade", alunoService.calcularMediaEnade());
+        modelAndView.addObject("alunosList", alunoService.listarTodos());
+        return modelAndView;
+    }
 }

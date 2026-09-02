@@ -95,4 +95,17 @@ public class AlunoControllerTest {
                 .andExpect(view().name("Aluno/listAlunos"))
                 .andExpect(model().attributeExists("alunosList"));
     }
+
+    @Test
+    @DisplayName("Deve exibir a tela com a média do ENADE")
+    void deveExibirTelaMediaEnade() throws Exception {
+        when(alunoService.calcularMediaEnade()).thenReturn(8.0);
+        when(alunoService.listarTodos()).thenReturn(Arrays.asList(aluno));
+
+        mockMvc.perform(get("/media-enade"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("Aluno/media-enade"))
+                .andExpect(model().attributeExists("mediaEnade"))
+                .andExpect(model().attributeExists("alunosList"));
+    }
 }

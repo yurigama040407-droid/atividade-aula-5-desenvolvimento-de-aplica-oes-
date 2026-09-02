@@ -18,6 +18,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -209,5 +210,35 @@ public class AlunoServiceTest {
 
         assertDoesNotThrow(() -> alunoService.deletarPorId(1L));
         verify(alunoRepository, times(1)).deleteById(1L);
+    }
+
+    @Test
+    @DisplayName("Deve calcular a média das notas do ENADE com sucesso")
+    void deveCalcularMediaEnadeComSucesso() {
+        Aluno aluno2 = new Aluno(
+                2L,
+                "Maria Souza",
+                "maria@exemplo.com",
+                "MAT67890",
+                Curso.ENFERMAGEM,
+                Status.ATIVO,
+                Turno.MATUTINO,
+                6.5
+        );
+        when(alunoRepository.findAll()).thenReturn(Arrays.asList(aluno, aluno2));
+
+        Double media = alunoService.calcularMediaEnade();
+
+        assertEquals(7.5, media);
+    }
+
+    @Test
+    @DisplayName("Deve retornar zero ao calcular média do ENADE quando não houver alunos")
+    void deveRetornarZeroQuandoNaoHouverAlunosAoCalcularMediaEnade() {
+        when(alunoRepository.findAll()).thenReturn(Collections.emptyList());
+
+        Double media = alunoService.calcularMediaEnade();
+
+        assertEquals(0.0, media);
     }
 }

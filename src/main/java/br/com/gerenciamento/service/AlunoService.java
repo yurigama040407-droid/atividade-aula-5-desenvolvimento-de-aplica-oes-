@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -128,5 +129,20 @@ public class AlunoService {
                 .stream()
                 .map(AlunoMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public Double calcularMediaEnade() {
+        List<Aluno> alunos = alunoRepository.findAll();
+        if (alunos.isEmpty()) {
+            return 0.0;
+        }
+        double media = alunos.stream()
+                .map(Aluno::getNotaEnade)
+                .filter(Objects::nonNull)
+                .mapToDouble(Double::doubleValue)
+                .average()
+                .orElse(0.0);
+        return Math.round(media * 100.0) / 100.0;
     }
 }
