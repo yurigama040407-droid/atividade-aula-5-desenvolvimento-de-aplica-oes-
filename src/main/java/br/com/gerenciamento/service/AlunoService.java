@@ -88,6 +88,14 @@ public class AlunoService {
         return alunoRepository.findByNomeContainingIgnoreCase(nome.trim());
     }
 
+    @Transactional(readOnly = true)
+    public List<Aluno> buscarPorCurso(br.com.gerenciamento.enums.Curso curso) {
+        if (curso == null) {
+            return alunoRepository.findAll();
+        }
+        return alunoRepository.findByCurso(curso);
+    }
+
     @Transactional
     public void deletarPorId(Long id) {
         if (!alunoRepository.existsById(id)) {

@@ -134,4 +134,13 @@ public class AlunoController {
         modelAndView.addObject("alunosList", alunoService.listarAtivos());
         return modelAndView;
     }
+
+    @GetMapping("/alunos-por-curso")
+    public ModelAndView alunosPorCurso(@RequestParam(required = false) br.com.gerenciamento.enums.Curso curso) {
+        ModelAndView modelAndView = new ModelAndView("Aluno/alunosPorCurso");
+        modelAndView.addObject("alunosList", alunoService.buscarPorCurso(curso));
+        modelAndView.addObject("cursos", br.com.gerenciamento.enums.Curso.values());
+        modelAndView.addObject("cursoSelecionado", curso);
+        return modelAndView;
+    }
 }

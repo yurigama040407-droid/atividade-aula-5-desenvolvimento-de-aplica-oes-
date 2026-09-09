@@ -24,4 +24,6 @@ public interface AlunoRepository extends JpaRepository<Aluno, Long> {
     boolean existsByEmail(String email);
 
     Optional<Aluno> findByEmailAndIdNot(String email, Long id);
+
+    List<Aluno> findByCurso(br.com.gerenciamento.enums.Curso curso);
 }
